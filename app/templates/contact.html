@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+    {% block main %}            
+            <h1>Contact Form</h1>
+
+            <p>Fill in this form to contact the site owners.</p>
+            
+            <form method="POST">                
+                {{ form.csrf_token }}             
+            
+                <h6>{{ form.name.label }}
+                    <label class="required">*Required</label>
+                </h6>
+                Please enter your full name<br/>
+                {{ form.name(size=40) }}
+
+                <h6>{{ form.email.label }}
+                    <label class="required">*Required</label>
+                </h6>
+                Please enter your e-mail address<br/>
+                {{ form.email(size=40) }}
+
+                <h6>{{ form.subject.label }}
+                    <label class="required">*Required</label>
+                </h6>
+                Please enter the subject of your message<br/>
+                {{ form.subject(size=40) }}
+
+                <h6>{{ form.message.label }}
+                    <label class="required">*Required</label>
+                </h6>
+				<h6>
+                Please enter the message you would like to send.
+                <br/>
+                {{ form.message(size=60) }}
+                </h6>
+				
+                <button type="submit" class="button">Send</button>
+            </form>
+{% endblock %}
